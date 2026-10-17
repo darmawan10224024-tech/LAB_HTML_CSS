@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Tech Club</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #263238;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      padding: 24px;
+      color: #ffffff;
+      background-color: #17365d;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 0;
+      padding: 16px 24px;
+      list-style: none;
+      background-color: #e2eaf3;
+    }
+
+    nav a {
+      color: #17365d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      text-decoration: underline;
+    }
+
+    main {
+      width: min(100% - 32px, 960px);
+      margin: 24px auto;
+    }
+
+    section,
+    article {
+      margin-bottom: 24px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+    }
+
+    .club-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      font: inherit;
+      border: 1px solid #8b98a5;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 16px;
+      padding: 10px 16px;
+      color: #ffffff;
+      background-color: #17365d;
+      border: 0;
+      border-radius: 4px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #e2eaf3;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Student Tech Club</h1>
+    <p>Learn, build, and share technology together.</p>
+  </header>
+
+  <nav aria-label="Navigasi utama">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#join">Join Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About the Club</h2>
+      <p>
+        Student Tech Club is a place for students to learn programming,
+        explore technology, and work on creative projects.
+      </p>
+      <img
+        class="club-image"
+        src="https://placehold.co/800x300?text=Student+Tech+Club"
+        alt="Ilustrasi kegiatan komunitas teknologi mahasiswa">
+    </section>
+
+    <section id="activities">
+      <h2>Our Activities</h2>
+
+      <article>
+        <h3>Weekly Coding Workshop</h3>
+        <p>Practice programming and solve problems together.</p>
+      </article>
+
+      <article>
+        <h3>Project Collaboration</h3>
+        <p>Build useful applications with other students.</p>
+      </article>
+    </section>
+
+    <section id="join">
+      <h2>Join the Club</h2>
+      <form action="#" method="get">
+        <label for="student-name">Your name</label>
+        <input id="student-name" name="student-name" type="text" required>
+
+        <label for="student-email">Email address</label>
+        <input id="student-email" name="student-email" type="email" required>
+
+        <button type="submit">Submit Registration</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Student Tech Club</p>
+  </footer>
+</body>
+</html>
