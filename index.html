@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Learning Project - Complete Guide</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #6366f1; /* Latar luar ungu/indigo */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Container Pembungkus Seluruh Proyek */
+        .project-wrapper {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Container Kartu Utama Atas (Header & Intro) */
+        .main-card {
+            background-color: #f8fafc;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Header Utama */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        /* Kartu Standar Berlatar Putih */
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 4px solid #0284c7; /* Garis aksen biru vertikal */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Judul Kartu */
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            color: #0284c7;
+            font-weight: 700;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .sub-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            color: #1e293b;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        /* Deskripsi Paragraf */
+        .card-description {
+            font-size: 14px;
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-description strong {
+            color: #0f172a;
+        }
+
+        .card-description code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            color: #475569;
+        }
+
+        /* Block Kode Gelap (Dark Slate) */
+        .code-block-container {
+            position: relative;
+            background-color: #2b3a4a;
+            border-radius: 8px;
+            padding: 18px 24px;
+            margin-bottom: 20px;
+        }
+
+        .html-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: #ef4444; /* Badge merah HTML */
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .code-content {
+            font-family: 'Courier New', Consolas, monospace;
+            color: #f8fafc;
+            font-size: 13.5px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-all;
+            padding-right: 50px;
+        }
+
+        /* Kotak Gradien Pastel (Key Points, Breakdown, Important Attributes) */
+        .gradient-box {
+            background: linear-gradient(to right, #ccfbf1, #e0e7ff, #fbcfe8);
+            border-left: 4px solid #f43f5e; /* Garis pink/merah */
+            border-radius: 8px;
+            padding: 20px 24px;
+        }
+
+        .gradient-box-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+
+        .gradient-box-list {
+            list-style: none;
+        }
+
+        .gradient-box-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #334155;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .gradient-box-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .gradient-box-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: #0f172a;
+            font-size: 18px;
+        }
+
+        .gradient-box-list li strong {
+            color: #0f172a;
+        }
+
+        .gradient-box-list li code {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* Styling Tabel */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .tags-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+        }
+
+        .tags-table th {
+            background-color: #3b82f6; /* Header biru */
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .tags-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #334155;
+        }
+
+        .tags-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .tags-table code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: #1e293b;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Box Preview (Live Examples, Form, Sample Table) */
+        .preview-box {
+            background-color: #f8fafc;
+            border: 1.5px dashed #60a5fa;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .preview-box-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        /* Live Examples Inner Elements */
+        .live-preview-content h1 {
+            font-size: 32px;
+            text-align: center;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .live-preview-content h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0284c7;
+            border-bottom: 2px solid #38bdf8;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .live-preview-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .live-preview-content p {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .live-preview-content a {
+            color: #0284c7;
+            text-decoration: underline;
+        }
+
+        .live-preview-content ul, 
+        .live-preview-content ol {
+            padding-left: 24px;
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .live-preview-content li {
+            margin-bottom: 6px;
+        }
+
+        /* Form Controls */
+        .form-inner-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #1e293b;
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #0284c7;
+        }
+
+        .submit-btn {
+            background-color: #0284c7;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* Practice Exercises Card (Latar Pink) */
+        .pink-card {
+            background-color: #fce7f3;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .task-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .task-list {
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+
+        .task-list li {
+            color: #334155;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* Project Structure Tree Block */
+        .tree-block-container {
+            background-color: #2b3a4a;
+            border-radius: 12px;
+            padding: 24px 28px;
+        }
+
+        .tree-content {
+            font-family: 'Courier New', Consolas, monospace;
+            color: #f8fafc;
+            font-size: 13.5px;
+            line-height: 1.6;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* Next Steps Full Gradient Card */
+        .next-steps-card {
+            background: linear-gradient(to right, #ccfbf1, #e0e7ff, #fbcfe8);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Congratulations Card */
+        .congrats-card {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #7c3aed);
+            border-radius: 16px;
+            padding: 35px 30px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .congrats-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .congrats-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #f1f5f9;
+            max-width: 750px;
+            margin: 0 auto 12px auto;
+        }
+
+        .congrats-remember {
+            font-size: 14px;
+            color: #ffffff;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="project-wrapper">
+
+        <!-- ================= BAGIAN 1: HEADER, WHAT IS HTML, HOW IT WORKS ================= -->
+        <div class="main-card">
+            <!-- HEADER UTAMA -->
+            <div class="header">
+                <h1><span>🌐</span> HTML Learning Project</h1>
+                <p>Master the Building Blocks of the Web</p>
+            </div>
+
+            <!-- WHAT IS HTML? -->
+            <div>
+                <div class="card-title">
+                    <span>🚀</span> What is HTML?
+                </div>
+                <p class="card-description">
+                    <strong>HTML (HyperText Markup Language)</strong> is the standard markup language for creating web pages. Think of it as the skeleton or foundation of every website you visit.
+                </p>
+                <div class="gradient-box">
+                    <div class="gradient-box-title">Key Points:</div>
+                    <ul class="gradient-box-list">
+                        <li><strong>HyperText:</strong> Text with links to other texts</li>
+                        <li><strong>Markup:</strong> A way to annotate text to show structure and meaning</li>
+                        <li><strong>Language:</strong> A set of rules and syntax for creating web content</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- HOW HTML WORKS -->
+            <div>
+                <div class="sub-title">
+                    <span>🏗️</span> How HTML Works
+                </div>
+                <p class="card-description">
+                    HTML uses <strong>tags</strong> to define elements. Tags are keywords surrounded by angle brackets like <code>&lt;tagname&gt;</code>. Most tags come in pairs:
+                </p>
+                <div class="code-block-container">
+                    <span class="html-badge">HTML</span>
+                    <div class="code-content">&lt;tagname&gt;Content goes here&lt;/tagname&gt; &lt;h1&gt;This is a heading&lt;/h1&gt; &lt;p&gt;This is a paragraph&lt;/p&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BAGIAN 2: BASIC HTML STRUCTURE ================= -->
+        <div class="card">
+            <div class="card-title">
+                <span>📋</span> Basic HTML Structure
+            </div>
+            <p class="card-description">
+                Every HTML document follows this basic structure:
+            </p>
+            <div class="code-block-container">
+                <span class="html-badge">HTML</span>
+                <div class="code-content">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &lt;title&gt;Page Title&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;Welcome to My Website&lt;/h1&gt; &lt;p&gt;This is my first paragraph.&lt;/p&gt; &lt;/body&gt; &lt;/html&gt;</div>
+            </div>
+            <div class="gradient-box">
+                <div class="gradient-box-title">Structure Breakdown:</div>
+                <ul class="gradient-box-list">
+                    <li><code>&lt;!DOCTYPE html&gt;</code> - Tells the browser this is HTML5</li>
+                    <li><code>&lt;html&gt;</code> - Root element of the page</li>
+                    <li><code>&lt;head&gt;</code> - Contains metadata (not visible on page)</li>
+                    <li><code>&lt;body&gt;</code> - Contains visible content</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================= BAGIAN 3: ESSENTIAL HTML TAGS ================= -->
+        <div class="card">
+            <div class="card-title">
+                <span>🏷️</span> Essential HTML Tags
+            </div>
+            <div class="table-container">
+                <table class="tags-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Tag</th>
+                            <th style="width: 35%;">Purpose</th>
+                            <th style="width: 40%;">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;h1&gt; - &lt;h6&gt;</code></td>
+                            <td>Headings (largest to smallest)</td>
+                            <td><code>&lt;h1&gt;Main Title&lt;/h1&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;p&gt;</code></td>
+                            <td>Paragraphs</td>
+                            <td><code>&lt;p&gt;This is text&lt;/p&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;a&gt;</code></td>
+                            <td>Links</td>
+                            <td><code>&lt;a href="url"&gt;Link text&lt;/a&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;img&gt;</code></td>
+                            <td>Images</td>
+                            <td><code>&lt;img src="image.jpg" alt="Description"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;div&gt;</code></td>
+                            <td>Container/section</td>
+                            <td><code>&lt;div&gt;Content here&lt;/div&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</code></td>
+                            <td>Lists</td>
+                            <td><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="sub-title">
+                <span>🎯</span> Live Examples:
+            </div>
+            <div class="preview-box live-preview-content">
+                <h1>This is an H1 heading</h1>
+                <h2>This is an H2 heading</h2>
+                <h3>This is an H3 heading</h3>
+                <p>This is a paragraph with <strong>bold text</strong> and <em>italic text</em>.</p>
+                <p>Here's a <a href="#">sample link</a>.</p>
+                
+                <p style="font-weight: 700; color: #1e293b; margin-top: 14px;">Unordered List:</p>
+                <ul>
+                    <li>First item</li>
+                    <li>Second item</li>
+                    <li>Third item</li>
+                </ul>
+
+                <p style="font-weight: 700; color: #1e293b; margin-top: 14px;">Ordered List:</p>
+                <ol>
+                    <li>Step one</li>
+                    <li>Step two</li>
+                    <li>Step three</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ================= BAGIAN 4: HTML FORMS ================= -->
+        <div class="card">
+            <div class="card-title">
+                <span>📝</span> HTML Forms
+            </div>
+            <p class="card-description">
+                Forms allow users to input data. Here's a working example:
+            </p>
+            <div class="code-block-container">
+                <span class="html-badge">HTML</span>
+                <div class="code-content">&lt;form&gt; &lt;label for="name"&gt;Name:&lt;/label&gt; &lt;input type="text" id="name" name="name"&gt; &lt;label for="email"&gt;Email:&lt;/label&gt; &lt;input type="email" id="email" name="email"&gt; &lt;label for="message"&gt;Message:&lt;/label&gt; &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt; &lt;button type="submit"&gt;Submit&lt;/button&gt; &lt;/form&gt;</div>
+            </div>
+
+            <div class="preview-box">
+                <div class="preview-box-title">Try this form:</div>
+                <div class="form-inner-card">
+                    <form>
+                        <div class="form-group">
+                            <label for="form-name">Name:</label>
+                            <input type="text" id="form-name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email">Email:</label>
+                            <input type="email" id="form-email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="form-subject">Subject:</label>
+                            <select id="form-subject">
+                                <option value="">Choose a topic...</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-message">Message:</label>
+                            <textarea id="form-message" rows="4" placeholder="Type your message here..."></textarea>
+                        </div>
+                        <button type="button" class="submit-btn">Submit Form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BAGIAN 5: HTML ATTRIBUTES & TABLES IN HTML ================= -->
+        <div class="card">
+            <div class="card-title">
+                <span>🎨</span> HTML Attributes
+            </div>
+            <p class="card-description">
+                Attributes provide additional information about HTML elements:
+            </p>
+            <div class="code-block-container">
+                <span class="html-badge">HTML</span>
+                <div class="code-content">&lt;!-- Common attributes --&gt; &lt;img src="photo.jpg" alt="A beautiful sunset" width="300" height="200"&gt; &lt;a href="https://example.com" target="_blank" title="Visit Example"&gt;Click here&lt;/a&gt; &lt;div class="container" id="main-content" style="color: blue;"&gt;Content&lt;/div&gt;</div>
+            </div>
+            <div class="gradient-box">
+                <div class="gradient-box-title">Important Attributes:</div>
+                <ul class="gradient-box-list">
+                    <li><strong>id</strong> - Unique identifier for an element</li>
+                    <li><strong>class</strong> - Groups elements for styling</li>
+                    <li><strong>src</strong> - Source file for images, videos, etc.</li>
+                    <li><strong>href</strong> - URL for links</li>
+                    <li><strong>alt</strong> - Alternative text for images</li>
+                    <li><strong>style</strong> - Inline CSS styling</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span>📊</span> Tables in HTML
+            </div>
+            <p class="card-description">
+                Tables organize data in rows and columns:
+            </p>
+            <div class="code-block-container">
+                <span class="html-badge">HTML</span>
+                <div class="code-content">&lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Name&lt;/th&gt; &lt;th&gt;Age&lt;/th&gt; &lt;th&gt;City&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;John&lt;/td&gt; &lt;td&gt;25&lt;/td&gt; &lt;td&gt;New York&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;</div>
+            </div>
+            <div class="preview-box">
+                <div class="preview-box-title">Sample Table:</div>
+                <div class="table-container" style="margin-bottom: 0;">
+                    <table class="tags-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Subject</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alice Johnson</td>
+                                <td>Mathematics</td>
+                                <td>A+</td>
+                                <td><span class="status-badge">☑ Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Bob Smith</td>
+                                <td>Physics</td>
+                                <td>B</td>
+                                <td><span class="status-badge">☑ Passed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Carol Davis</td>
+                                <td>Chemistry</td>
+                                <td>A</td>
+                                <td><span class="status-badge">☑ Passed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BAGIAN 6: PRACTICE EXERCISES & PROJECT STRUCTURE ================= -->
+        <div class="pink-card">
+            <div class="card-title" style="color: #0284c7; border-bottom-color: #38bdf8;">
+                <span>💻</span> Practice Exercises
+            </div>
+            <div class="task-section-title">Beginner Tasks:</div>
+            <ol class="task-list">
+                <li>Create a basic HTML page with a title, heading, and paragraph</li>
+                <li>Add an image with alt text</li>
+                <li>Create a list of your favorite movies</li>
+                <li>Build a simple table with your weekly schedule</li>
+            </ol>
+            <div class="task-section-title">Intermediate Tasks:</div>
+            <ol class="task-list" style="margin-bottom: 0;">
+                <li>Create a contact form with different input types</li>
+                <li>Build a navigation menu with links</li>
+                <li>Design a simple blog post layout</li>
+                <li>Create a photo gallery grid</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span>📁</span> Project Structure
+            </div>
+            <p class="card-description">
+                Here's how to organize your HTML project:
+            </p>
+            <div class="tree-block-container">
+                <div class="tree-content"><strong>my-website/</strong>
+│
+├── <strong>index.html</strong> (Main page)
+├── <strong>about.html</strong> (About page)
+├── <strong>contact.html</strong> (Contact page)
+│
+├── <strong>css/</strong>
+│   └── <strong>styles.css</strong> (CSS stylesheets)
+│
+├── <strong>js/</strong>
+│   └── <strong>script.js</strong> (JavaScript files)
+│
+└── <strong>images/</strong>
+    ├── <strong>logo.png</strong>
+    ├── <strong>hero-image.jpg</strong>
+    └── <strong>gallery/</strong>
+        ├── <strong>photo1.jpg</strong>
+        └── <strong>photo2.jpg</strong></div>
+            </div>
+        </div>
+
+        <!-- ================= BAGIAN 7: NEXT STEPS, TOOLS & CONGRATULATIONS ================= -->
+        <div class="next-steps-card">
+            <div class="card-title" style="color: #0284c7; border-bottom-color: #38bdf8;">
+                <span>🎯</span> Next Steps in Your Learning Journey
+            </div>
+            <p class="card-description">After mastering HTML, continue with:</p>
+            <ul class="gradient-box-list">
+                <li><strong>CSS (Cascading Style Sheets)</strong> - Style your HTML elements</li>
+                <li><strong>JavaScript</strong> - Add interactivity and dynamic behavior</li>
+                <li><strong>Responsive Design</strong> - Make websites work on all devices</li>
+                <li><strong>Web Accessibility</strong> - Make websites usable for everyone</li>
+                <li><strong>Modern Frameworks</strong> - React, Vue.js, or Angular</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span>🔧</span> Development Tools
+            </div>
+            <div class="gradient-box">
+                <div class="gradient-box-title">Recommended Tools:</div>
+                <ul class="gradient-box-list">
+                    <li><strong>Text Editors:</strong> VS Code, Sublime Text, Atom</li>
+                    <li><strong>Browsers:</strong> Chrome DevTools, Firefox Developer Tools</li>
+                    <li><strong>Version Control:</strong> Git and GitHub</li>
+                    <li><strong>Online Editors:</strong> CodePen, JSFiddle, Repl.it</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="congrats-card">
+            <div class="congrats-title">
+                <span>🎉</span> Congratulations!
+            </div>
+            <p class="congrats-text">
+                You've completed the HTML Learning Project! You now understand the fundamentals of HTML and can create your own web pages. Keep practicing and building projects to strengthen your skills.
+            </p>
+            <p class="congrats-remember">
+                <strong>Remember:</strong> The best way to learn HTML is by doing. Start building your own projects!
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
